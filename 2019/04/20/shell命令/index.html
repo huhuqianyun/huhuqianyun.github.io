@@ -6,15 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | Hexo</title>
+  <title>Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
+  <meta name="description" content="tr命令：字符转换、压缩和删除工具转换  只能对stdin（也就是输出到屏幕的东西）操作，不能直接对文件操作 tr  set1  set2 用集合1中的字符替换掉集合2中同一位置的字符 例题：统计有多少个path变量  echo $PATH|tr ‘:’ ‘\n’|wc -l  删除  tr -d  set 将stdin中数据流删除与set相同的字符 例子： [root@huhu’s ~]# ec">
+<meta property="og:type" content="article">
 <meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+<meta property="og:url" content="http://yoursite.com/2019/04/20/shell命令/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="tr命令：字符转换、压缩和删除工具转换  只能对stdin（也就是输出到屏幕的东西）操作，不能直接对文件操作 tr  set1  set2 用集合1中的字符替换掉集合2中同一位置的字符 例题：统计有多少个path变量  echo $PATH|tr ‘:’ ‘\n’|wc -l  删除  tr -d  set 将stdin中数据流删除与set相同的字符 例子： [root@huhu’s ~]# ec">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-04-20T14:03:52.247Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo">
+<meta name="twitter:description" content="tr命令：字符转换、压缩和删除工具转换  只能对stdin（也就是输出到屏幕的东西）操作，不能直接对文件操作 tr  set1  set2 用集合1中的字符替换掉集合2中同一位置的字符 例题：统计有多少个path变量  echo $PATH|tr ‘:’ ‘\n’|wc -l  删除  tr -d  set 将stdin中数据流删除与set相同的字符 例子： [root@huhu’s ~]# ec">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -150,167 +154,175 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-shell命令" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="tr命令：字符转换、压缩和删除工具"><a href="#tr命令：字符转换、压缩和删除工具" class="headerlink" title="tr命令：字符转换、压缩和删除工具"></a>tr命令：字符转换、压缩和删除工具</h3><p><strong>转换</strong></p>
+<ul>
+<li>只能对stdin（也就是输出到屏幕的东西）操作，不能直接对文件操作</li>
+<li>tr  set1  set2</li>
+<li>用集合1中的字符替换掉集合2中同一位置的字符</li>
+<li>例题：统计有多少个path变量<br>  echo $PATH|tr ‘:’ ‘\n’|wc -l</li>
+</ul>
+<p><strong>删除</strong></p>
+<ul>
+<li>tr -d  set</li>
+<li>将stdin中数据流删除与set相同的字符</li>
+<li>例子：<ol>
+<li>[root@huhu’s ~]# echo 123456 | tr -d 34<br> 1256</li>
+<li>tr -d ‘[0-9]’ &lt;/etc/hosts #不会动源文件，只是将数据加载到内存当中，处理完之后再显示到屏幕上</li>
+<li>df -h | tr -d % #df是查看文件的使用情况，去除%，取出值</li>
+</ol>
+</li>
+</ul>
+<p><strong>压缩</strong></p>
+<ul>
+<li>tr -s set</li>
+<li>将连续相同的字符压缩成一个字符</li>
+<li>例题：<br>  ifconfig|tr -s “ “ </li>
+</ul>
+<h3 id="sort命令"><a href="#sort命令" class="headerlink" title="sort命令"></a>sort命令</h3><ul>
+<li>默认按每行的第一字符排序</li>
+<li>-n ： 按整数进行排序</li>
+<li>-r ： 递减排序 reverse 反转</li>
+<li>-k ： 指定哪一列为排序键</li>
+<li>-t ： 指定字段分隔符（默认是空白）</li>
+<li>例题：<ul>
+<li>sort -t: -n -k3 /etc/passwd</li>
+</ul>
+</li>
+</ul>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/04/20/shell命令/" class="archive-article-date">
-  	<time datetime="2019-04-20T13:01:25.261Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-20</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/04/20/shell命令/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/04/20/linux文件系统/" class="archive-article-date">
-  	<time datetime="2019-04-19T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-20</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2019/04/20/linux文件系统/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">linux文件系统、重定向</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/04/20/linux文件系统/">linux文件系统、重定向</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/04/19/network/" class="archive-article-date">
-  	<time datetime="2019-04-19T15:12:19.592Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-19</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/04/18/huhu-s-blog/" class="archive-article-date">
-  	<time datetime="2019-04-18T12:30:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-18</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/04/18/huhu-s-blog/">huhu&#39;s blog</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">小日记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/04/13/hello-world/" class="archive-article-date">
-  	<time datetime="2019-04-13T13:09:37.012Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-13</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/04/13/hello-world/">Hello World</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -333,8 +345,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
