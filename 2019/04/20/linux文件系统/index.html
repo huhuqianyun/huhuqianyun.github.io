@@ -8,20 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>linux文件系统、重定向 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="linux文件系统 Linux文件系统中的文件是数据的集合，文件系统不仅包含着文件中的数据而且还有文件系统的结构，所有Linux 用户和程序看到的文件、目录、软连接及文件保护信息等都存储在其中。  在某个磁盘分区的空间里进行文件管理的一套系统。 管理文件：文件查找、文件读取、写入  磁盘分区和文件系统有什么区别  磁盘分区：是为了方便管理 文件系统：是用来管理文件的一套思想和规则 windows文">
+  <meta name="description" content="linux文件系统 Linux文件系统中的文件是数据的集合，文件系统不仅包含着文件中的数据而且还有文件系统的结构，所有Linux 用户和程序看到的文件、目录、软连接及文件保护信息等都存储在其中。">
 <meta name="keywords" content="linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="linux文件系统、重定向">
 <meta property="og:url" content="http://yoursite.com/2019/04/20/linux文件系统/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="linux文件系统 Linux文件系统中的文件是数据的集合，文件系统不仅包含着文件中的数据而且还有文件系统的结构，所有Linux 用户和程序看到的文件、目录、软连接及文件保护信息等都存储在其中。  在某个磁盘分区的空间里进行文件管理的一套系统。 管理文件：文件查找、文件读取、写入  磁盘分区和文件系统有什么区别  磁盘分区：是为了方便管理 文件系统：是用来管理文件的一套思想和规则 windows文">
+<meta property="og:description" content="linux文件系统 Linux文件系统中的文件是数据的集合，文件系统不仅包含着文件中的数据而且还有文件系统的结构，所有Linux 用户和程序看到的文件、目录、软连接及文件保护信息等都存储在其中。">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=241429181,3834019507&fm=26&gp=0.jpg0">
-<meta property="og:updated_time" content="2019-04-20T11:40:24.587Z">
+<meta property="og:updated_time" content="2019-05-02T03:38:00.315Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linux文件系统、重定向">
-<meta name="twitter:description" content="linux文件系统 Linux文件系统中的文件是数据的集合，文件系统不仅包含着文件中的数据而且还有文件系统的结构，所有Linux 用户和程序看到的文件、目录、软连接及文件保护信息等都存储在其中。  在某个磁盘分区的空间里进行文件管理的一套系统。 管理文件：文件查找、文件读取、写入  磁盘分区和文件系统有什么区别  磁盘分区：是为了方便管理 文件系统：是用来管理文件的一套思想和规则 windows文">
-<meta name="twitter:image" content="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=241429181,3834019507&fm=26&gp=0.jpg0">
+<meta name="twitter:description" content="linux文件系统 Linux文件系统中的文件是数据的集合，文件系统不仅包含着文件中的数据而且还有文件系统的结构，所有Linux 用户和程序看到的文件、目录、软连接及文件保护信息等都存储在其中。">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -178,7 +176,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h3 id="linux文件系统"><a href="#linux文件系统" class="headerlink" title="linux文件系统"></a>linux文件系统</h3><hr>
-<p>Linux文件系统中的文件是数据的集合，文件系统不仅包含着文件中的数据而且还有文件系统的结构，所有Linux 用户和程序看到的文件、目录、软连接及文件保护信息等都存储在其中。</p>
+<p>Linux文件系统中的文件是数据的集合，文件系统不仅包含着文件中的数据而且还有文件系统的结构，所有Linux 用户和程序看到的文件、目录、软连接及文件保护信息等都存储在其中。<br><a id="more"></a></p>
 <ul>
 <li>在某个磁盘分区的空间里进行文件管理的一套系统。</li>
 <li>管理文件：文件查找、文件读取、写入</li>
@@ -200,7 +198,6 @@
 </ol>
 </li>
 </ul>
-<p><img src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=241429181,3834019507&amp;fm=26&amp;gp=0.jpg0" alt="tupian"></p>
 <h4 id="文件描述符"><a href="#文件描述符" class="headerlink" title="文件描述符"></a>文件描述符</h4><p>内核（kernel）利用文件描述符（file descriptor）来访问文件。文件描述符是非负整数。打开现存文件或新建文件时，内核会返回一个文件描述符。读写文件也需要使用文件描述符来指定待读写的文件。</p>
 <ul>
 <li>进程在打开文件的时候，给所有的文件进行了编号，这个编号就是文件描述符。一个进程里会需要维护一个文件描述符</li>
@@ -213,7 +210,7 @@
 <ol>
 <li>标准输入 /dev/stdin  0  键盘</li>
 <li>标准输出 /dev/stdout 1  屏幕</li>
-<li>标准错误 /dev/stderr 2  屏幕<br> ll /dev/std*  # 查看标准设备文件<a id="more"></a>
+<li>标准错误 /dev/stderr 2  屏幕<br> ll /dev/std*  # 查看标准设备文件<!--more-->
 <h4 id="重定向"><a href="#重定向" class="headerlink" title="重定向"></a>重定向</h4><strong>命令</strong></li>
 <li><blockquote>
 <p>输入重定向  </p>

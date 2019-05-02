@@ -172,13 +172,14 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>本来想着，快要找工作了，应该把所有的精力和时间都花在自己准备项目和知识点上，但是这次的英语课程感觉方法真的挺好的，不想就这么错过，毕竟我还是要提升英语的。</p>
-<p>学习方法：<br><img src="http://pqrotkeuq.bkt.clouddn.com/%E5%8D%95%E8%AF%8D%E9%80%9F%E8%AE%B0%E6%96%B9%E6%B3%95_00.png" alt="单词速记方法"><br>词根、前缀和后缀<br><img src="http://pqrotkeuq.bkt.clouddn.com/-lect-%E5%92%8C-press-.png" alt="前缀、后缀"><br><img src="http://pqrotkeuq.bkt.clouddn.com/-nat-%E5%92%8C-form-_00.png" alt="前缀、后缀"></p>
-
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>本来想着，快要找工作了，应该把所有的精力和时间都花在自己准备项目和知识点上，但是这次的英语课程感觉方法真的挺好的，不想就这么错过，毕竟我还是要提升英语的。<br>
+        
+          <a class="article-more-a" href="/2019/05/02/五一英语学习/#more">more >></a>
+        
       
 
       
-    </div>
+    </p></div>
     <div class="article-info article-info-index">
       
       
@@ -694,49 +695,14 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h3 id="linux文件系统"><a href="#linux文件系统" class="headerlink" title="linux文件系统"></a>linux文件系统</h3><hr>
-<p>Linux文件系统中的文件是数据的集合，文件系统不仅包含着文件中的数据而且还有文件系统的结构，所有Linux 用户和程序看到的文件、目录、软连接及文件保护信息等都存储在其中。</p>
-<ul>
-<li>在某个磁盘分区的空间里进行文件管理的一套系统。</li>
-<li>管理文件：文件查找、文件读取、写入</li>
-</ul>
-<h4 id="磁盘分区和文件系统有什么区别"><a href="#磁盘分区和文件系统有什么区别" class="headerlink" title="磁盘分区和文件系统有什么区别"></a>磁盘分区和文件系统有什么区别</h4><hr>
-<ul>
-<li>磁盘分区：是为了方便管理</li>
-<li>文件系统：是用来管理文件的一套思想和规则</li>
-<li>windows文件系统：<ol>
-<li>fat32</li>
-<li>NFTS：new technology  file  system 微软的专利技术。可以支持2T的分区，单个文件达到2T的大小</li>
-</ol>
-</li>
-<li>linux文件系统：<ol>
-<li>ext3、ext4</li>
-<li>xfs——&gt;centos7、乌班图</li>
-<li>tmpts 临时文件系统</li>
-<li>proc 存放内核信息的文件系统</li>
-</ol>
-</li>
-</ul>
-<p><img src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=241429181,3834019507&amp;fm=26&amp;gp=0.jpg0" alt="tupian"></p>
-<h4 id="文件描述符"><a href="#文件描述符" class="headerlink" title="文件描述符"></a>文件描述符</h4><p>内核（kernel）利用文件描述符（file descriptor）来访问文件。文件描述符是非负整数。打开现存文件或新建文件时，内核会返回一个文件描述符。读写文件也需要使用文件描述符来指定待读写的文件。</p>
-<ul>
-<li>进程在打开文件的时候，给所有的文件进行了编号，这个编号就是文件描述符。一个进程里会需要维护一个文件描述符</li>
-<li>一个进程可以打开多少个文件<br>  ulimit -a # 查看一个进程最大可以打开多少个文件描述符<br>  ulimit -n 13121 # 修改最大文件描述符个数，临时修改<ul>
-<li>开机时就修改<br>  [root@huhu’s ~]# vim /etc/rc.local<br>   ulimit -n 13121<br>  chmod +x /etc/rc.d/rc.local # 给该文件增加可执行权限</li>
-</ul>
-</li>
-</ul>
-<h4 id="标准输入输出"><a href="#标准输入输出" class="headerlink" title="标准输入输出"></a>标准输入输出</h4><p>Linux系统将所有设备都当作文件来处理，而Linux用文件描述符来标识每个文件对象。其实我们可以想象我们电脑的显示器和键盘在Linux系统中都被看作是文件，而它们都有相应的文件描述符与之对应。</p>
-<ol>
-<li>标准输入 /dev/stdin  0  键盘</li>
-<li>标准输出 /dev/stdout 1  屏幕</li>
-<li>标准错误 /dev/stderr 2  屏幕<br> ll /dev/std*  # 查看标准设备文件
+<p>Linux文件系统中的文件是数据的集合，文件系统不仅包含着文件中的数据而且还有文件系统的结构，所有Linux 用户和程序看到的文件、目录、软连接及文件保护信息等都存储在其中。<br>
         
           <a class="article-more-a" href="/2019/04/20/linux文件系统/#more">more >></a>
         
       
 
       
-    </li></ol></div>
+    </p></div>
     <div class="article-info article-info-index">
       
       
