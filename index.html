@@ -152,6 +152,115 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Django之表单" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/05/07/Django之表单/">Django之表单</a>
+    </h1>
+  
+
+        
+        <a href="/2019/05/07/Django之表单/" class="archive-article-date">
+  	<time datetime="2019-05-07T00:50:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-07</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="用到表单的三个部分"><a href="#用到表单的三个部分" class="headerlink" title="用到表单的三个部分"></a>用到表单的三个部分</h3><ul>
+<li>为数据创建HTML表单<ul>
+<li>表单的字段会映射到HTML的<input>元素。</li>
+</ul>
+</li>
+<li>接收并处理客户端提交的表单及数据<ul>
+<li>管理表单数据</li>
+</ul>
+</li>
+<li>准备并重组（验证）数据，以便下一步的渲染<ul>
+<li>提交表单时执行验证</li>
+</ul>
+</li>
+</ul>
+<h3 id="实例化、处理和渲染表单"><a href="#实例化、处理和渲染表单" class="headerlink" title="实例化、处理和渲染表单"></a>实例化、处理和渲染表单</h3><p>在Django中渲染一个表单的时候：</p>
+<ol>
+<li>在视图中获取它（例如从数据库中取出）</li>
+<li>将它传递给模板上下文</li>
+<li>使用模板变量将它转换为HTML标记语言</li>
+</ol>
+<ul>
+<li>但我们处理表单时，我们一般在视图中实例化它。</li>
+</ul>
+<h3 id="seesion和cookie实现登入和注销"><a href="#seesion和cookie实现登入和注销" class="headerlink" title="seesion和cookie实现登入和注销"></a>seesion和cookie实现登入和注销</h3><ul>
+<li>操作：<ol>
+<li>开启session，settings.py文件中，默认是开启的</li>
+<li>设置session：request.session[key] = True</li>
+<li>获取session：<ol>
+<li>request.session[key]</li>
+<li>request.session.get(key)</li>
+</ol>
+</li>
+<li>删除session：del request.session[key]</li>
+</ol>
+</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Django</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/05/07/Django之表单/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-freetime设计" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
