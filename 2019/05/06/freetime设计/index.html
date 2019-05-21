@@ -6,15 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2019/5 | Hexo</title>
+  <title>freetime设计 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/archives/2019/05/index.html">
+  <meta name="description" content="前言Django基础核心技术之Model模型介绍与设计本章是以自己的项目，农大户外活动平台为例进行介绍">
+<meta name="keywords" content="Django">
+<meta property="og:type" content="article">
+<meta property="og:title" content="freetime设计">
+<meta property="og:url" content="http://yoursite.com/2019/05/06/freetime设计/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="前言Django基础核心技术之Model模型介绍与设计本章是以自己的项目，农大户外活动平台为例进行介绍">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="http://pqrotkeuq.bkt.clouddn.com/freetime%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AE%BE%E8%AE%A1.png">
+<meta property="og:updated_time" content="2019-05-06T08:40:44.024Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="freetime设计">
+<meta name="twitter:description" content="前言Django基础核心技术之Model模型介绍与设计本章是以自己的项目，农大户外活动平台为例进行介绍">
+<meta name="twitter:image" content="http://pqrotkeuq.bkt.clouddn.com/freetime%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AE%BE%E8%AE%A1.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -150,36 +157,108 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-freetime设计" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/05/06/freetime设计/" class="archive-article-date">
-  	<time datetime="2019-05-06T01:53:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-06</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/05/06/freetime设计/">freetime设计</a>
+    <h1 class="article-title" itemprop="name">
+      freetime设计
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2019/05/06/freetime设计/" class="archive-article-date">
+  	<time datetime="2019-05-06T01:53:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-06</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>Django基础核心技术之Model模型介绍与设计<br>本章是以自己的项目，农大户外活动平台为例进行介绍<br><a id="more"></a></p>
+<h4 id="这是大二设计的数据库模型"><a href="#这是大二设计的数据库模型" class="headerlink" title="这是大二设计的数据库模型"></a>这是大二设计的数据库模型</h4><p><img src="http://pqrotkeuq.bkt.clouddn.com/freetime%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AE%BE%E8%AE%A1.png" alt="数据库设计"></p>
+<h3 id="Django的字段类型"><a href="#Django的字段类型" class="headerlink" title="Django的字段类型"></a>Django的字段类型</h3><ul>
+<li>AutoField 一IntegerField，根据可用ID自动递增。您通常不需要直接使用它; 如果您没有另外指定，主键字段将自动添加到您的模型中。</li>
+<li>BigAutoField 一个64位整数，很像一个AutoField不同之处在于它是保证从适合数字1到9223372036854775807</li>
+<li>BigIntegerField 一个64位整数，很像一个IntegerField不同之处在于它是保证从适合数字-9223372036854775808到 9223372036854775807。</li>
+<li>BinaryField 用于存储原始二进制数据的字段。它只支持bytes分配。</li>
+<li>BooleanField 此字段的默认表单窗口小部件是a CheckboxInput。</li>
+<li>CharField classCharField（max_length = None，** options）字符串字段，用于小到大的字符串。对于大量文本，请使用TextField。此字段的默认表单窗口小部件是a TextInput。</li>
+<li>DateField classDateField（auto_now = False，auto_now_add = False，**选项）<ul>
+<li>DateField.auto_now 每次保存对象时自动将字段设置为现在。对“最后修改”的时间戳有用。</li>
+<li>DateField.auto_now_add 首次创建对象时自动将字段设置为现在。用于创建时间戳。</li>
+</ul>
+</li>
+<li>DateTimeField classDateTimeField（auto_now = False，auto_now_add = False，**选项）日期和时间，由Python datetime.datetime实例表示。采取相同的额外参数DateField。</li>
+<li>DecimalField，类DecimalField（max_digits =无，decimal_places =无，**选项）一个固定精度的十进制数，由Python Decimal实例表示。有两个必需的参数。如：models.DecimalField(…, max_digits=5, decimal_places=2)</li>
+<li>EmailField，classEmailField（max_length = 254，** options）CharField检查该值是否为有效电子邮件地址的A. 它用于EmailValidator验证输入。</li>
+<li>FileField classFileField（upload_to = None，max_length = 100，** options）[source] ¶<br>文件上传字段。如：# file will be saved to MEDIA_ROOT/uploads/2015/01/30<br>  upload = models.FileField(upload_to=’uploads/%Y/%m/%d/‘) </li>
+<li>ImageField classImageField（upload_to = None，height_field = None，width_field = None，max_length = 100，**选项）[source] 。<ul>
+<li>从中继承所有属性和方法FileField，但也验证上载的对象是有效图像。</li>
+<li>除了可用于特殊属性FileField，一个ImageField也具有height和width属性。</li>
+</ul>
+</li>
+</ul>
+<h3 id="Django的model字段选项"><a href="#Django的model字段选项" class="headerlink" title="Django的model字段选项"></a>Django的model字段选项</h3><ul>
+<li>max_length参数，CharField(及其子类)需要一个max_length参数，该 参数指定VARCHAR用于存储数据的数据库字段的大小。</li>
+<li>null，如果True，Django将NULL在数据库中存储空值。默认是False。</li>
+<li>blank，如果True，该字段允许为空。默认是False<ul>
+<li>注意： blank与null不同。 null纯粹与数据库相关，而 blank与验证相关。如果字段有 blank=True，则表单验证将允许输入空值。如果字段有blank=False，则需要该字段。</li>
+</ul>
+</li>
+<li>choices，如果给出了这个，则默认表单小部件将是一个选择框而不是标准文本字段，并将限制对给定选项的选择。<br>  YEAR_IN_SCHOOL_CHOICES = (<br>  (‘FR’, ‘Freshman’),<br>  (‘SO’, ‘Sophomore’),<br>  (‘JR’, ‘Junior’),<br>  (‘SR’, ‘Senior’),<br>  (‘GR’, ‘Graduate’),<br>  )  # 每个元组中的第一个元素是将存储在数据库中的值。第二个元素由字段的窗体小部件显示。</li>
+<li>default。字段的默认值。这可以是值或可调用对象。如果可调用，则每次创建新对象时都会调用它。</li>
+<li>primary_key. 如果为True，此字段是模型的主键</li>
+<li>unique，如果True，该字段在整个表格中必须是唯一的。</li>
+<li>help_text， 使用表单小部件显示的额外“帮助”文本。即使您的字段未在表单上使用，它也对文档很有用。</li>
+<li>db_column，用于此字段的数据库列的名称。如果没有给出，Django将使用该字段的名称。</li>
+<li>db_index，如果True，将为此字段创建数据库索引。</li>
+<li>error_messages，该error_messages参数允许您覆盖该字段将引发的默认消息。传入一个字典，其中的键与您要覆盖的错误消息相匹配。</li>
+</ul>
+<h3 id="关系字段"><a href="#关系字段" class="headerlink" title="关系字段"></a>关系字段</h3><ul>
+<li>ForeignKey，classForeignKey（to，on_delete，** options）[source]<ul>
+<li>多对一的关系。需要两个位置参数：与模型相关的类和on_delete选项。</li>
+<li>要创建递归关系 - 与自身具有多对一关系的对象 - 使用。models.ForeignKey(‘self’,on_delete=models.CASCADE)</li>
+<li>例子：<br>class Car(models.Model):<br>manufacturer = models.ForeignKey(<br>  ‘Manufacturer’,<br>  on_delete=models.CASCADE,<br>)</li>
+</ul>
+</li>
+<li>ManyToManyField，classManyToManyField（to，** options）[来源] <ul>
+<li>多对多的关系。需要一个位置参数：与模型相关的类，它与它的作用完全相同 ForeignKey，包括递归和 惰性关系。</li>
+<li>在幕后，Django创建了一个中间连接表来表示多对多关系。默认情况下，此表名称是使用多对多字段的名称以及包含它的模型的表名生成的。</li>
+</ul>
+</li>
+</ul>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -191,57 +270,106 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/05/06/freetime设计/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/05/02/五一英语学习/" class="archive-article-date">
-  	<time datetime="2019-05-02T03:27:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-02</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2019/05/02/五一英语学习/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">五一英语学习</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/05/02/五一英语学习/">五一英语学习</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">英语</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
+
+  
 
 
           </div>
@@ -264,8 +392,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
