@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>数据库安装及基本操作 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="前言">
-<meta name="keywords" content="linux">
+  <meta name="description" content="前言MySQL安装方式：1. rpm包安装  2. 源码安装 基础扩展">
+<meta name="keywords" content="数据库">
 <meta property="og:type" content="article">
 <meta property="og:title" content="数据库安装及基本操作">
 <meta property="og:url" content="http://yoursite.com/2019/05/20/数据库安装/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="前言">
+<meta property="og:description" content="前言MySQL安装方式：1. rpm包安装  2. 源码安装 基础扩展">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-05-21T14:07:40.049Z">
+<meta property="og:updated_time" content="2019-05-23T03:15:31.850Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据库安装及基本操作">
-<meta name="twitter:description" content="前言">
+<meta name="twitter:description" content="前言MySQL安装方式：1. rpm包安装  2. 源码安装 基础扩展">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -175,7 +175,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><a id="more"></a>
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>MySQL安装方式：1. rpm包安装  2. 源码安装</p>
+<p>基础扩展</p>
+<a id="more"></a>
 <h3 id="传输工具lrzsz"><a href="#传输工具lrzsz" class="headerlink" title="传输工具lrzsz"></a>传输工具lrzsz</h3><ul>
 <li>yum install lrzsz -y 可以将windows文件传输到linux中</li>
 <li>rz命令，就可以拖拽文件到linux中了</li>
@@ -191,7 +193,9 @@
 <li>禁用防火墙，设置为开机不启动：systemctl disable firewalld</li>
 <li>开机启用防火墙：systemctl enable firewalld</li>
 </ol>
-<h3 id="rpm包安装"><a href="#rpm包安装" class="headerlink" title="rpm包安装"></a>rpm包安装</h3><ol>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><hr>
+<p><strong>RPM包安装：</strong></p>
+<ol>
 <li>去官网下载mysqlrpm-bundle包，操作系统：红帽企业Linux/Oracle Linux</li>
 <li>解压安装包： tar xf + mysqlrpm-bundle包</li>
 <li>yum安装： 可以自动解决依赖关系，将需要的安装包都安装上：yum install mysql-community-*</li>
@@ -203,6 +207,60 @@
 <li>修改密码: <ul>
 <li>alter user ‘root‘@’localhost’ identified by ‘密码’;</li>
 <li>set password=’密码’;</li>
+</ul>
+</li>
+</ol>
+<p><strong>源码安装:</strong> </p>
+<ol>
+<li><p>将mysql的源码包解压：</p>
+<ul>
+<li>tar xf mysql-boost-5.6.25.tar.gz</li>
+</ul>
+</li>
+<li><p>安装依赖关系包</p>
+<ul>
+<li>yum  install  cmake  ncurses-devel  -y  安装依赖关系包</li>
+<li>cmake是一个编译工具和gcc一样</li>
+<li>或者是 yum  install  gcc  gcc-c++  perl</li>
+</ul>
+</li>
+<li><p>创建用户和组</p>
+<ul>
+<li>useradd  -r  -s  /sbin/nologin  mysql  # -r 创建系统用户，不会创建家目录，不能登录系统。-M 创建用户不建立家目录</li>
+<li>useradd [选项] 登录</li>
+<li>-s, –shell SHELL        新账户的登录 shell</li>
+<li>-r, –system                  创建一个系统账户</li>
+</ul>
+</li>
+<li><p>创建安装目录</p>
+<ul>
+<li>mkdir  /usr/local/mysql</li>
+<li>mkdir  /usr/local/mysql/data</li>
+</ul>
+</li>
+<li><p>安装mysql软件目录，修改目录拥有者为mysql用户</p>
+<ul>
+<li>chown  -R  mysql.mysql   /usr/local/mysql</li>
+<li>chown  -R  mysql.mysql  /usr/local/mysql/data</li>
+</ul>
+</li>
+<li><p>进入解压后的目录</p>
+<ul>
+<li>cd   mysql-5.7.25/</li>
+</ul>
+</li>
+<li><p>开始编译前的配置（预编译）</p>
+<ul>
+<li><p>cmake  -DCMAKE_INSTALL_PREFIX=/usr/local/mysql  \  # mysql安装目录</p>
+<p>-DMYSQL_DATADIR=/data/mysql  \ # 数据库文件目录</p>
+<p>-DSYSCONFDIR=/etc  \  # 配置文件目录</p>
+<p>-DMYSQL_USER=mysql   \  #  运行mysql进行的用户</p>
+<p>-DDEFAULT_CHARSET=utf8   \  #  默认字符集</p>
+<p>-DDEFAULT_COLLATION=utf8_general_ci   \  #  默认校对规则</p>
+<p>-DWITH_BOOST=boost  # boost库，带boost的源码包只需要这样既可</p>
+<p>make   -j  4  # 指定几个进程一起做</p>
+<p>make  install</p>
+</li>
 </ul>
 </li>
 </ol>
@@ -249,7 +307,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">数据库</a>
         		</li>
       		
 		</ul>
@@ -468,11 +526,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">英语</a>
+                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+                <a href="javascript:void(0)" class="js-tag color3">观点</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">英语</a>
               </li>
              
               <li class="article-tag-list-item">
