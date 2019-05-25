@@ -6,15 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: 测试 | 糊糊网站</title>
+  <title>数据库基本操作 | 糊糊网站</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="糊糊网站">
-<meta property="og:url" content="http://yoursite.com/tags/测试/index.html">
+  <meta name="description" content="知识点 mysqld_safe进程和mysqld进程之间的关系？  mysqld_sage是mysqld进程的父进程    。 mysqld中有很多线程。 mysql是一个进程中有很多线程的服务。   连接mysql的两种方式：  通过文件socket（在同一台电脑上） mysql客户端去访问mysqld这个进程 通过文件/tmp/mysql.sock这个中间桥梁来连接 服务启动后，就会创建/te">
+<meta name="keywords" content="数据库">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据库基本操作">
+<meta property="og:url" content="http://yoursite.com/2019/05/24/数据库基本操作/index.html">
 <meta property="og:site_name" content="糊糊网站">
+<meta property="og:description" content="知识点 mysqld_safe进程和mysqld进程之间的关系？  mysqld_sage是mysqld进程的父进程    。 mysqld中有很多线程。 mysql是一个进程中有很多线程的服务。   连接mysql的两种方式：  通过文件socket（在同一台电脑上） mysql客户端去访问mysqld这个进程 通过文件/tmp/mysql.sock这个中间桥梁来连接 服务启动后，就会创建/te">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-05-25T02:42:25.560Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="糊糊网站">
+<meta name="twitter:title" content="数据库基本操作">
+<meta name="twitter:description" content="知识点 mysqld_safe进程和mysqld进程之间的关系？  mysqld_sage是mysqld进程的父进程    。 mysqld中有很多线程。 mysql是一个进程中有很多线程的服务。   连接mysql的两种方式：  通过文件socket（在同一台电脑上） mysql客户端去访问mysqld这个进程 通过文件/tmp/mysql.sock这个中间桥梁来连接 服务启动后，就会创建/te">
   
     <link rel="alternative" href="/atom.xml" title="糊糊网站" type="application/atom+xml">
   
@@ -150,60 +155,228 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-数据库基本操作" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/04/25/测试工程师-功能测试-技术篇/" class="archive-article-date">
-  	<time datetime="2019-04-25T06:19:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-25</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/04/25/测试工程师-功能测试-技术篇/">功能测试之技术篇</a>
+    <h1 class="article-title" itemprop="name">
+      数据库基本操作
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2019/05/24/数据库基本操作/" class="archive-article-date">
+  	<time datetime="2019-05-24T13:26:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-24</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h4><ol>
+<li><p>mysqld_safe进程和mysqld进程之间的关系？</p>
+<ul>
+<li>mysqld_sage是mysqld进程的父进程    。</li>
+<li>mysqld中有很多线程。</li>
+<li>mysql是一个进程中有很多线程的服务。</li>
+</ul>
+</li>
+<li><p>连接mysql的两种方式：</p>
+<ol>
+<li>通过文件socket（在同一台电脑上）<ul>
+<li>mysql客户端去访问mysqld这个进程</li>
+<li>通过文件/tmp/mysql.sock这个中间桥梁来连接</li>
+<li>服务启动后，就会创建/tem/mysql.sock这个文件，否则找不到该文件</li>
+</ul>
+</li>
+<li>通过网络socket </li>
+</ol>
+</li>
+<li><p>在my.cnf中配置日志文件的目录，指定目录后，新建目录，并且将该文件的权限修改为mysql用户所有</p>
+<blockquote>
+<p>[root@mysql ~]# cat /etc/my.cnf<br>[mysqld_safe]<br>log-error=/var/log/mysql/mysql.log  #这是指定mysql的日志文件的路径 </p>
+<p>[mysqld]<br>socket=/data/mysql/mysql.sock</p>
+</blockquote>
+<blockquote>
+<p>[root@mysql ~]# chown mysql:mysql /var/log/mysql</p>
+</blockquote>
+</li>
+<li><p>mysql编译安装的目录问题</p>
+<ol>
+<li>basedir=/usr/local/mysql  指定mysql的安装路径</li>
+<li>datadir=/data/mysql  数据存放的目录</li>
+<li>plugin-dir=/usr/local/mydql/lib/plugin  插件目录</li>
+<li>user=mysql  使用mysql这个用户启动</li>
+<li>log-error=/var/log/mysql/mysql.log  日志文件路径</li>
+<li>pid-file=/data/mysql/mysql.localdomain.pid  mysql进程的pid存放的文件，方便开启和关闭mysql</li>
+<li>socket=/data/mysql/mysql.sock  指定的socket文件目录</li>
+</ol>
+</li>
+<li><p>关于定制mysql的配置（mysqld进程启动的时候，会读取配置文件的信息，添加运行），有两个地方。1. 在cmake编译的时候指定   2. 在配置文件my.cnf里指定</p>
+</li>
+<li><p>mysql登入，[root@mysql ~]# mysql -S /data/mysql/mysql.sock -uroot -p’Sanchuang123#’、默认在/tem/mysql.socket目录下找</p>
+</li>
+</ol>
+<h4 id="拓展知识"><a href="#拓展知识" class="headerlink" title="拓展知识"></a>拓展知识</h4><ol>
+<li>什么是socket？<ul>
+<li>网络上的两个进程通过一个双向的通信连接实现数据的交换，这个连接的一端称为一个socket。也就是连接的那个接口。</li>
+<li>建立网络通信连接至少要一对socket。socket的本质是编程接口API，对TCP/IP的封装。</li>
+<li>是进程通信机制，通常叫做”套接字“，用于描述IP地址和端口号</li>
+</ul>
+</li>
+<li>好</li>
+</ol>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">测试</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">数据库</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/05/24/数据库基本操作/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2019/05/25/发现天赋/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          发现天赋
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2019/05/24/市场价值/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">市场价值</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -226,9 +399,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,

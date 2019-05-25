@@ -6,22 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>数据库安装及基本操作 | Hexo</title>
+  <title>数据库安装及基本操作 | 糊糊网站</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="前言MySQL安装方式：1. rpm包安装  2. 源码安装 基础扩展">
 <meta name="keywords" content="数据库">
 <meta property="og:type" content="article">
 <meta property="og:title" content="数据库安装及基本操作">
 <meta property="og:url" content="http://yoursite.com/2019/05/20/数据库安装/index.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:site_name" content="糊糊网站">
 <meta property="og:description" content="前言MySQL安装方式：1. rpm包安装  2. 源码安装 基础扩展">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-05-23T03:15:31.850Z">
+<meta property="og:updated_time" content="2019-05-24T13:21:27.461Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据库安装及基本操作">
 <meta name="twitter:description" content="前言MySQL安装方式：1. rpm包安装  2. 源码安装 基础扩展">
   
-    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="糊糊网站" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -227,8 +227,7 @@
 <li><p>创建用户和组</p>
 <ul>
 <li>useradd  -r  -s  /sbin/nologin  mysql  # -r 创建系统用户，不会创建家目录，不能登录系统。-M 创建用户不建立家目录</li>
-<li>useradd [选项] 登录</li>
-<li>-s, –shell SHELL        新账户的登录 shell</li>
+<li>useradd [选项] 登录<br>   -s, –shell SHELL        新账户的登录 shell</li>
 <li>-r, –system                  创建一个系统账户</li>
 </ul>
 </li>
@@ -262,6 +261,54 @@
 <p>make  install</p>
 </li>
 </ul>
+</li>
+<li><p>启动mysql</p>
+<ol>
+<li>进入安装目录：cd  /usr/local/mysql</li>
+<li>清空原本的配置文件，如无则会新建：&gt;/etc/my.cnf （ mariadb的配置文件）</li>
+<li>进入到可执行文件中，bin目录</li>
+<li>初始化启动文件： <ul>
+<li>[root@mysql bin]# ./mysqld –initialize –user=mysql –basedir=/usr/local/mysql/ –datadir=/data/mysql/</li>
+</ul>
+</li>
+<li>会产生一个临时密码：<ul>
+<li>2019-05-24T12:44:23.115428Z 1 [Note] A temporary password is generated for root@localhost: yTwelNTY1v/r</li>
+</ul>
+</li>
+<li>在bin目录下，把mysql命令，放在环境变量中：<ul>
+<li>[root@mysql bin]# cp mysql /usr/bin/</li>
+</ul>
+</li>
+<li>把mysql.server（mysql启动脚本） 放入/etc/init.d/文件夹中，这样就可以使用service  mysql  start来启动mysql服务了<ul>
+<li>[root@mysql mysql]# cp support-files/mysql.server /etc/init.d/mysqld</li>
+<li>[root@mysql mysql]# service mysqld start</li>
+</ul>
+</li>
+<li>进入并修改密码<ul>
+<li>[root@mysql mysql]# mysql -uroot -p’yTwelNTY1v/r’</li>
+<li>mysql&gt; set password=’Sanchuang123#’;</li>
+</ul>
+</li>
+<li>授权一个用户，让他可以远程登入<ul>
+<li>mysql&gt; grant all on <em>.</em> to ‘root‘@’%’ identified by ‘Sanchuang123#’;</li>
+</ul>
+</li>
+<li>关闭防火墙（数据库服务器一般不启动防火墙，因为会影响数据取出的性能。会在数据库前加一个防火墙）<ol>
+<li>关闭服务：[root@mysql mysql]# service firewalld stop</li>
+<li>设置开机不启动：[root@mysql mysql]# systemctl disable firewalld</li>
+<li>查看防火墙规则：[root@mysql mysql]# iptables -L</li>
+</ol>
+</li>
+<li>关闭selinux（用来保护linux安全的）<ol>
+<li>[root@mysql mysql]# vi /etc/selinux/config </li>
+<li>修改：SELINUX=disabled</li>
+</ol>
+</li>
+<li>设置开机启动<ul>
+<li>[root@mysql mysql]# systemctl enable mysqld  # 这种不行，不是yum安装的服务，是编译安装的<br>mysqld.service is not a native service, redirecting to /sbin/chkconfig.<br>Executing /sbin/chkconfig mysqld on<br>[root@mysql mysql]# chkconfig mysqld on  # 建议使用这个命令</li>
+</ul>
+</li>
+</ol>
 </li>
 </ol>
 <h3 id="mysql知识扩展"><a href="#mysql知识扩展" class="headerlink" title="mysql知识扩展"></a>mysql知识扩展</h3><ul>
@@ -518,11 +565,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">小日记</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+                <a href="javascript:void(0)" class="js-tag color3">英语</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -531,10 +582,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">观点</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">英语</a>
               </li>
              
               <li class="article-tag-list-item">
