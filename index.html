@@ -172,6 +172,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
+        <h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>本章内容：掌握SIGN模型，从而找到自己的天赋，并借此进入发展快车道</p>
+        
+          <a class="article-more-a" href="/2019/05/25/发现天赋/#more">more >></a>
         
       
 
@@ -180,6 +183,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">观点</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -241,57 +255,13 @@
 <li>mysqld中有很多线程。</li>
 <li>mysql是一个进程中有很多线程的服务。</li>
 </ul>
-</li>
-<li><p>连接mysql的两种方式：</p>
-<ol>
-<li>通过文件socket（在同一台电脑上）<ul>
-<li>mysql客户端去访问mysqld这个进程</li>
-<li>通过文件/tmp/mysql.sock这个中间桥梁来连接</li>
-<li>服务启动后，就会创建/tem/mysql.sock这个文件，否则找不到该文件</li>
-</ul>
-</li>
-<li>通过网络socket </li>
-</ol>
-</li>
-<li><p>在my.cnf中配置日志文件的目录，指定目录后，新建目录，并且将该文件的权限修改为mysql用户所有</p>
-<blockquote>
-<p>[root@mysql ~]# cat /etc/my.cnf<br>[mysqld_safe]<br>log-error=/var/log/mysql/mysql.log  #这是指定mysql的日志文件的路径 </p>
-<p>[mysqld]<br>socket=/data/mysql/mysql.sock</p>
-</blockquote>
-<blockquote>
-<p>[root@mysql ~]# chown mysql:mysql /var/log/mysql</p>
-</blockquote>
-</li>
-<li><p>mysql编译安装的目录问题</p>
-<ol>
-<li>basedir=/usr/local/mysql  指定mysql的安装路径</li>
-<li>datadir=/data/mysql  数据存放的目录</li>
-<li>plugin-dir=/usr/local/mydql/lib/plugin  插件目录</li>
-<li>user=mysql  使用mysql这个用户启动</li>
-<li>log-error=/var/log/mysql/mysql.log  日志文件路径</li>
-<li>pid-file=/data/mysql/mysql.localdomain.pid  mysql进程的pid存放的文件，方便开启和关闭mysql</li>
-<li>socket=/data/mysql/mysql.sock  指定的socket文件目录</li>
-</ol>
-</li>
-<li><p>关于定制mysql的配置（mysqld进程启动的时候，会读取配置文件的信息，添加运行），有两个地方。1. 在cmake编译的时候指定   2. 在配置文件my.cnf里指定</p>
-</li>
-<li><p>mysql登入，[root@mysql ~]# mysql -S /data/mysql/mysql.sock -uroot -p’Sanchuang123#’、默认在/tem/mysql.socket目录下找</p>
-</li>
-</ol>
-<h4 id="拓展知识"><a href="#拓展知识" class="headerlink" title="拓展知识"></a>拓展知识</h4><ol>
-<li>什么是socket？<ul>
-<li>网络上的两个进程通过一个双向的通信连接实现数据的交换，这个连接的一端称为一个socket。也就是连接的那个接口。</li>
-<li>建立网络通信连接至少要一对socket。socket的本质是编程接口API，对TCP/IP的封装。</li>
-<li>是进程通信机制，通常叫做”套接字“，用于描述IP地址和端口号</li>
-</ul>
-</li>
-<li>好</li>
-</ol>
-
+        
+          <a class="article-more-a" href="/2019/05/24/数据库基本操作/#more">more >></a>
+        
       
 
       
-    </div>
+    </li></ol></div>
     <div class="article-info article-info-index">
       
       

@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>数据库基本操作 | 糊糊网站</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="知识点 mysqld_safe进程和mysqld进程之间的关系？  mysqld_sage是mysqld进程的父进程    。 mysqld中有很多线程。 mysql是一个进程中有很多线程的服务。   连接mysql的两种方式：  通过文件socket（在同一台电脑上） mysql客户端去访问mysqld这个进程 通过文件/tmp/mysql.sock这个中间桥梁来连接 服务启动后，就会创建/te">
+  <meta name="description" content="知识点 mysqld_safe进程和mysqld进程之间的关系？  mysqld_sage是mysqld进程的父进程    。 mysqld中有很多线程。 mysql是一个进程中有很多线程的服务。">
 <meta name="keywords" content="数据库">
 <meta property="og:type" content="article">
 <meta property="og:title" content="数据库基本操作">
 <meta property="og:url" content="http://yoursite.com/2019/05/24/数据库基本操作/index.html">
 <meta property="og:site_name" content="糊糊网站">
-<meta property="og:description" content="知识点 mysqld_safe进程和mysqld进程之间的关系？  mysqld_sage是mysqld进程的父进程    。 mysqld中有很多线程。 mysql是一个进程中有很多线程的服务。   连接mysql的两种方式：  通过文件socket（在同一台电脑上） mysql客户端去访问mysqld这个进程 通过文件/tmp/mysql.sock这个中间桥梁来连接 服务启动后，就会创建/te">
+<meta property="og:description" content="知识点 mysqld_safe进程和mysqld进程之间的关系？  mysqld_sage是mysqld进程的父进程    。 mysqld中有很多线程。 mysql是一个进程中有很多线程的服务。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-05-25T02:42:25.560Z">
+<meta property="og:updated_time" content="2019-05-25T11:43:15.566Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据库基本操作">
-<meta name="twitter:description" content="知识点 mysqld_safe进程和mysqld进程之间的关系？  mysqld_sage是mysqld进程的父进程    。 mysqld中有很多线程。 mysql是一个进程中有很多线程的服务。   连接mysql的两种方式：  通过文件socket（在同一台电脑上） mysql客户端去访问mysqld这个进程 通过文件/tmp/mysql.sock这个中间桥梁来连接 服务启动后，就会创建/te">
+<meta name="twitter:description" content="知识点 mysqld_safe进程和mysqld进程之间的关系？  mysqld_sage是mysqld进程的父进程    。 mysqld中有很多线程。 mysql是一个进程中有很多线程的服务。">
   
     <link rel="alternative" href="/atom.xml" title="糊糊网站" type="application/atom+xml">
   
@@ -182,6 +182,7 @@
 <li>mysqld中有很多线程。</li>
 <li>mysql是一个进程中有很多线程的服务。</li>
 </ul>
+<a id="more"></a>
 </li>
 <li><p>连接mysql的两种方式：</p>
 <ol>
@@ -228,7 +229,13 @@
 </li>
 <li>好</li>
 </ol>
-
+<h4 id="数据库操作"><a href="#数据库操作" class="headerlink" title="数据库操作"></a>数据库操作</h4><p><strong>一：查看</strong></p>
+<pre><code>1. 查看有哪些库：show   databases;
+2. 查看mysql版本：
+* show  variables  like  &apos;version&apos;;
+* select version(); 
+* 刚登入进来就会有
+</code></pre>
       
 
       
